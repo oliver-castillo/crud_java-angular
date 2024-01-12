@@ -18,7 +18,7 @@ server:
 
 spring:
     datasource:
-        url: mysql://root:GGF6-2Ccf25Ea1e51gDf2-5ab-D1F51b@monorail.proxy.rlwy.net:11452/railway
+        url: jdbc:mysql://root:GGF6-2Ccf25Ea1e51gDf2-5ab-D1F51b@monorail.proxy.rlwy.net:11452/railway
         username: root
         password: GGF6-2Ccf25Ea1e51gDf2-5ab-D1F51b
         driver-class-name: com.mysql.cj.jdbc.Driver
