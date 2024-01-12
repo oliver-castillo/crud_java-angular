@@ -1,11 +1,26 @@
+# server:
+#     port: 8080
+
+# spring:
+#     datasource:
+#         url: jdbc:mysql://localhost:11452/crud_db
+#         username: root
+#         password:
+#         driver-class-name: com.mysql.cj.jdbc.Driver
+#     jpa:
+#         hibernate:
+#             ddl-auto: create
+#         show-sql: true
+#         generate-ddl: true
+
 server:
     port: 8080
 
 spring:
     datasource:
-        url: jdbc:mysql://localhost:3306/crud_db
+        url: mysql://root:GGF6-2Ccf25Ea1e51gDf2-5ab-D1F51b@monorail.proxy.rlwy.net:11452/railway
         username: root
-        password:
+        password: GGF6-2Ccf25Ea1e51gDf2-5ab-D1F51b
         driver-class-name: com.mysql.cj.jdbc.Driver
     jpa:
         hibernate:
