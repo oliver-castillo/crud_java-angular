@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "/products")
-@CrossOrigin(value = "http://localhost:4200/")
+@CrossOrigin(origins = "*")
 public class ProductController {
   private final IProductService productService;
 
@@ -16,12 +16,12 @@ public class ProductController {
     this.productService = productService;
   }
 
-  @PostMapping(value = "/create")
+  @PostMapping(value = "")
   public ResponseEntity<Object> saveProduct(@RequestBody Product product) {
     return new ResponseEntity<>(productService.saveProduct(product), HttpStatus.CREATED);
   }
 
-  @PutMapping(value = "/update")
+  @PutMapping(value = "/{id}")
   public ResponseEntity<Object> updateProduct(@RequestBody Product product) {
     return new ResponseEntity<>(productService.saveProduct(product), HttpStatus.OK);
   }
@@ -32,12 +32,12 @@ public class ProductController {
   }
 
   @GetMapping(value = "/{id}")
-  public ResponseEntity<Object> getProductById(@PathVariable String id) {
+  public ResponseEntity<Object> getProductById(@PathVariable Long id) {
     return new ResponseEntity<>(productService.getProductById(id), HttpStatus.OK);
   }
 
   @DeleteMapping(value = "/{id}")
-  public ResponseEntity<Object> deleteProduct(@PathVariable String id) {
+  public ResponseEntity<Object> deleteProduct(@PathVariable Long id) {
     productService.deleteProductById(id);
     return new ResponseEntity<>(HttpStatus.OK);
   }

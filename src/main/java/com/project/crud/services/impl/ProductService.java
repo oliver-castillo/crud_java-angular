@@ -13,12 +13,12 @@ public class ProductService implements IProductService {
 
   IProductRepository productRepository;
 
-  protected ProductService(IProductRepository productRepository){
+  protected ProductService(IProductRepository productRepository) {
     this.productRepository = productRepository;
   }
+
   @Override
   public Product saveProduct(Product product) {
-    product.setTotalPrice(calculateTotalPrice(product.getUnitPrice(), product.getQuantity()));
     return productRepository.save(product);
   }
 
@@ -28,16 +28,12 @@ public class ProductService implements IProductService {
   }
 
   @Override
-  public Optional<Product> getProductById(String id) {
+  public Optional<Product> getProductById(Long id) {
     return productRepository.findById(id);
   }
 
   @Override
-  public void deleteProductById(String id) {
+  public void deleteProductById(Long id) {
     productRepository.deleteById(id);
-  }
-
-  private Double calculateTotalPrice(Double unitPrice, int quantity) {
-    return unitPrice * quantity;
   }
 }

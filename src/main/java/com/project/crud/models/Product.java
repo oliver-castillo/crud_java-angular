@@ -8,12 +8,8 @@ import lombok.Data;
 @Data
 public class Product {
   @Id
-  @GeneratedValue(strategy = GenerationType.UUID)
-  private String id;
-
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
   private String name;
   private Double unitPrice;
-  private int quantity;
-  private Double totalPrice;
-
 }

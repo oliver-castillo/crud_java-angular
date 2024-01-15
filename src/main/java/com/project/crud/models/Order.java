@@ -3,11 +3,10 @@ package com.project.crud.models;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "orders")
@@ -24,8 +23,9 @@ public class Order {
   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:mm:ss")
   private LocalDateTime date;
 
-  private int numberOfProducts;
+  @ManyToMany
+  private List<Product> products;
 
-  private Double finalPrice;
+  private int numberOfProducts;
 
 }

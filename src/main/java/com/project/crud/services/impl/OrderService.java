@@ -20,8 +20,14 @@ public class OrderService implements IOrderService {
 
   @Override
   public Order saveOrder(Order order) {
-    order.setOrderNumber(orderRepository.count() + 1);
-    return orderRepository.save(order);
+    try {
+      order.setOrderNumber(orderRepository.count() + 1);
+      order.setNumberOfProducts((order.getProducts().size()));
+      return orderRepository.save(order);
+    } catch (Exception e) {
+      System.out.println(e.getMessage());
+    }
+    return null;
   }
 
   @Override
